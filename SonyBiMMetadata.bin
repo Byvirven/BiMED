@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NonRealTimeMeta xmlns="urn:schemas-professionalDisc:nonRealTimeMeta:ver.1.10" xmlns:sony="urn:schemas-sony-com:pro:nrtExtention:2003" xmlns:lib="urn:schemas-professionalDisc:lib" lastUpdate="2008-09-11T09:58:03Z">
+	<TargetMaterial umidRef="060A2B340101010501010D43130000001AB00D00204705800800460202210315"/>
+	<Duration value="2464"/>
+	<LtcChangeTable tcFps="25">
+		<LtcChange frameCount="0" value="22025809" status="increment"/>
+		<LtcChange frameCount="2463" value="10415909" status="end"/>
+	</LtcChangeTable>
+	<CreationDate value="2008-09-11T09:58:03Z"/>
+	<TypicalUbit value="0000000000000000"/>
+	<KeyFrame frameCount="0"/>
+	<BodyUmidBasicChangeTable>
+		<BodyUmidBasicChange frameCount="0" value="060A2B340101010501010D43330000001AB00D00204705800800460202210315" status="start"/>
+	</BodyUmidBasicChangeTable>
+	<BodyUmidWhenChangeTable>
+		<BodyUmidWhenChange frameCount="0" value="84066C0320470580" status="increment"/>
+		<BodyUmidWhenChange frameCount="2463" value="446E6E0320470580" status="end"/>
+	</BodyUmidWhenChangeTable>
+	<BodyUmidWhereChangeTable>
+		<BodyUmidWhereChange frameCount="0" value="000000000000000000000000" status="start"/>
+	</BodyUmidWhereChangeTable>
+	<BodyUmidWhoChangeTable>
+		<BodyUmidWhoChange frameCount="0" value="000000000000000000000000" status="start"/>
+	</BodyUmidWhoChangeTable>
+	<KlvPacketTable>
+		<KlvPacket frameCount="0" key="060E2B34010101050301020A02000000" lengthValue="095F5265635374617274" status="spot"/>
+	</KlvPacketTable>
+	<VideoFormat>
+		<VideoRecPort port="DIGITAL-COMPONENT"/>
+		<VideoFrame videoCodec="MPEG2HD35_1440_1080_MP@HL" formatFps="25p"/>
+		<VideoLayout pixel="1440" numOfVerticalLine="1080" aspectRatio="16:9"/>
+	</VideoFormat>
+	<AudioFormat numOfChannel="4">
+		<AudioRecPort port="ANALOG" audioCodec="LPCM16" trackDst="CH1"/>
+		<AudioRecPort port="ANALOG" audioCodec="LPCM16" trackDst="CH2"/>
+		<AudioRecPort port="ANALOG" audioCodec="LPCM16" trackDst="CH3"/>
+		<AudioRecPort port="ANALOG" audioCodec="LPCM16" trackDst="CH4"/>
+	</AudioFormat>
+	<SubStream codec="PD-SubStream"/>
+	<Device manufacturer="SONY" modelName="PDW-F350" serialNo="10789">
+		<Element hardware="PACKAGE    " software="Version 1.620"/>
+		<Element hardware="SYS        " software="Version 1.620"/>
+		<Element hardware="FP         " software="Version 1.091"/>
+		<Element hardware="TSYS       " software="Version 3.003"/>
+		<Element hardware="TMBP       " software="Version 3.001"/>
+		<Element hardware="NIOS       " software="Version 1.120"/>
+		<Element hardware="OSD        " software="Version 1.500"/>
+		<Element hardware="DRV        " software="Version 1.550"/>
+		<Element hardware="DSP.A      " software="Version 2.010"/>
+		<Element hardware="PRXV       " software="Version 1.700"/>
+		<Element hardware="PRXA       " software="Version 1.010"/>
+		<Element hardware="GEOS       " software="Version 1.500"/>
+		<Element hardware="NOVA       " software="Version 1.001"/>
+		<Element hardware="AT         " software="Version 1.540"/>
+		<Element hardware="FRESH      " software="Version 1.050"/>
+		<Element hardware="COPRO      " software="Version 1.050"/>
+	</Device>
+</NonRealTimeMeta>                   

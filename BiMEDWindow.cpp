@@ -197,7 +197,8 @@ BiMEDWindow::BiMEDWindow
 	
 	// show window's widgets
 	show();
-	
+	//genericFeatures::writeFirstBinaryFile();
+	//genericFeatures::readFirstBinaryFile();
 }
 
 BiMEDWindow::~BiMEDWindow
@@ -248,12 +249,9 @@ void BiMEDWindow::on_open_to_decode
 	);
 	
 	if (FC->getResponse() == Gtk::RESPONSE_OK) 
-	{
-			toDecodeTextBuffer->hide();
-			
-			toDecodeTextBuffer->set_text(genericFeatures::readFile(FC->getPathToFile()));
-			toDecodeTextBuffer->show();
-	}
+	{	
+			toDecodeTextBuffer->set_text(genericFeatures::readBinaryFile(FC->getPathToFile()));
+		}
 	delete FC;
 }
 

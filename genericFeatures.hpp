@@ -193,6 +193,38 @@ public:
 		std::string file
 	);
 	
+	static std::string readBinaryFile 
+	(
+			std::string file
+	);
+	
+	static void writeBinaryFile 
+	(
+			std::string file,
+			std::vector<char *> data
+	);
+	
+	static char convertToBinary
+	(
+		unsigned char HalfMSB,
+		unsigned char HalfLSB
+	);
+	
+	static std::string hexToStr
+	(
+		unsigned short hex
+	);
+	
+	static void writeFirstBinaryFile 
+	(
+			void
+	);
+	
+	static void readFirstBinaryFile 
+	(
+			void
+	);
+	
 protected:
 
 /////////////////////////////////
