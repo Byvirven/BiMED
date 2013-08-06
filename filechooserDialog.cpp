@@ -67,9 +67,9 @@ filechooserDialog::filechooserDialog
 						? get_filename()
 						: get_filename()+".xml")
 					: 
-						((genericFeatures::isExtension(get_filename(),"bim"))
+						((genericFeatures::isExtension(get_filename(),"bin"))
 						? get_filename()
-						: get_filename()+".bim")
+						: get_filename()+".bin")
 					);
 		}
 	}
@@ -145,7 +145,7 @@ void filechooserDialog::setXMLFilter
 	void
 ) 
 {
-	// filter for any ebucore files
+	// filter for any xml files
 	Glib::RefPtr<Gtk::FileFilter> filter = Gtk::FileFilter::create();
 	filter->set_name("Any XML source");
 	filter->add_mime_type("text/xml");//xml mime type
@@ -159,11 +159,11 @@ void filechooserDialog::setBiMFilter
 	void
 ) 
 {
-	// filter for any ebucore files
+	// filter for any bin files
 	Glib::RefPtr<Gtk::FileFilter> filter = Gtk::FileFilter::create();
 	filter->set_name("Any BiM source");
-	filter->add_mime_type("text/bim");//xml mime type
-	filter->add_pattern("*.bim");
+	filter->add_mime_type("application/octet-stream");// RFC2046
+	filter->add_pattern("*.bin");
 	// add the filters to the filechooser
 	add_filter(filter);
 }
@@ -193,7 +193,7 @@ void filechooserDialog::setFilters
 		{
 			setXMLFilter();
 		} break;
-		case 1 : // BiM filter
+		case 1 : // Octet-stream filter
 		{
 			setBiMFilter();
 		} break;

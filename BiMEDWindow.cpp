@@ -225,12 +225,7 @@ void BiMEDWindow::on_open_to_encode
 	
 	if (FC->getResponse() == Gtk::RESPONSE_OK) 
 	{
-	
-/*		gst->setFile
-		(
-			FC->getURIToFile(),
-			Glib::filename_display_basename(FC->getPathToFile())
-		);*/
+			genericFeatures::readFile(FC->getPathToFile());
 	}
 	delete FC;
 
@@ -254,12 +249,10 @@ void BiMEDWindow::on_open_to_decode
 	
 	if (FC->getResponse() == Gtk::RESPONSE_OK) 
 	{
-	
-/*		gst->setFile
-		(
-			FC->getURIToFile(),
-			Glib::filename_display_basename(FC->getPathToFile())
-		);*/
+			toDecodeTextBuffer->hide();
+			
+			toDecodeTextBuffer->set_text(genericFeatures::readFile(FC->getPathToFile()));
+			toDecodeTextBuffer->show();
 	}
 	delete FC;
 }

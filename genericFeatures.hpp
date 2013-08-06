@@ -187,6 +187,11 @@ public:
 	(
 		std::string path
 	);
+
+	static std::string readFile
+	(
+		std::string file
+	);
 	
 protected:
 

@@ -155,3 +155,49 @@ std::vector<std::string> genericFeatures::listFiles
 	closedir(dp);
 	return PathToFiles;
 }
+
+std::string genericFeatures::readFile
+(
+	std::string file
+)
+{
+
+/*	std::ifstream ifs(file, std::ios::binary);
+	char buff[1000];
+	ifs.seekg (0, std::ios::beg);
+	int count = 0;
+	while(!ifs.eof()) {
+		ifs.read(buff, 1000);
+		std::cout << count++ << std::endl;
+	}"/
+
+
+class Data {
+        int    key;
+        double value;
+    };
+    
+    Data x;
+    Data *y = new Data[10];
+
+    fstream myFile ("data.bin", ios::in | ios::out | ios::binary);
+    myFile.seekp (location1);
+    myFile.write ((char*)&x, sizeof (Data));
+    ...
+    myFile.seekg (0);
+    myFile.read ((char*)y, sizeof (Data) * 10);
+
+*/	std::string line;
+	std::ifstream myfile (file);
+	if (myfile.is_open())
+	{
+		while ( myfile.good() )
+		{
+			std::getline (myfile,line);
+			std::cout << line << std::endl;
+    	}
+		myfile.close();
+	}
+	else std::cout << "Unable to open file"; 
+	return "bingo";
+}
