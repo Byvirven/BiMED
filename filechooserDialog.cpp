@@ -3,10 +3,9 @@
  * \file filechooserDialog.cpp
  * \brief Generic filechooser window functions
  * \authors Marco Dos Santos Oliveira
- * \version 0.1
+ * \version 1.0.0
  * \date 2013 August 2
- *
- * This software is published in LGPLv3.0
+ * \copyright This software is published in MPLv2.0
  *
  */
 
@@ -59,19 +58,6 @@ filechooserDialog::filechooserDialog
 			);
 			delete AC;
 		}
-	} else {
-		if (response == Gtk::RESPONSE_OK) {
-			output_filename = ( (mimeType == 0)
-					? 
-						((genericFeatures::isExtension(get_filename(),"xml"))
-						? get_filename()
-						: get_filename()+".xml")
-					: 
-						((genericFeatures::isExtension(get_filename(),"bin"))
-						? get_filename()
-						: get_filename()+".bin")
-					);
-		}
 	}
 }
 
@@ -89,30 +75,6 @@ int filechooserDialog::getResponse
 {
 	return response;
 }
-
-Glib::ustring filechooserDialog::getURIToFile
-(
-	void
-)
-{
-	return get_uri();
-}
-
-std::vector<Glib::ustring> filechooserDialog::getURIToFiles
-(
-	void
-)
-{
-	return get_uris();
-}
-
-Glib::ustring filechooserDialog::getURIToFolder
-(
-	void
-)
-{
-	return get_current_folder_uri();
-}
 	
 std::string filechooserDialog::getPathToFile
 (
@@ -120,16 +82,6 @@ std::string filechooserDialog::getPathToFile
 )
 {
 	return get_filename();
-}
-	
-std::vector<std::string> filechooserDialog::getPathToFiles
-(
-	void
-)
-{
-	return (get_action() != Gtk::FILE_CHOOSER_ACTION_SELECT_FOLDER)
-		? get_filenames()
-		: genericFeatures::listFiles(get_filenames().at(0));
 }
 
 std::string filechooserDialog::getPathToFolder
@@ -164,6 +116,7 @@ void filechooserDialog::setBiMFilter
 	filter->set_name("Any BiM source");
 	filter->add_mime_type("application/octet-stream");// RFC2046
 	filter->add_pattern("*.bin");
+	filter->add_pattern("*.txt");
 	// add the filters to the filechooser
 	add_filter(filter);
 }

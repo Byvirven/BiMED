@@ -1,12 +1,11 @@
 /*!
- * \project_name EBU Player
+ * \project_name BiM Encoder/Decoder
  * \file genericAlertWindow.cpp
  * \brief Generic alert window functions
  * \authors Marco Dos Santos Oliveira
- * \version 0.1
- * \date 4 march 2013
- *
- * This software is published in LGPLv3.0
+ * \version 1.0.0
+ * \date 7 August 2013
+ * \copyright This software is published in MPLv2.0
  *
  */
 

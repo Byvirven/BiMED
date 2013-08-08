@@ -6,22 +6,24 @@
  * \file filechooserDialog.hpp
  * \brief Generic filechooser window specification
  * \authors Marco Dos Santos Oliveira
- * \version 0.1
+ * \version 1.0.0
  * \date 2013 August 2
- *
- * This software is published in MPLv2.0
+ * \copyright This software is published in MPLv2.0
  *
  */
 
-#include <gtkmm.h>
-#include <gdkmm.h>
-#include <iostream>
-#include <string>
-#include <fstream>
-
+#include <gtkmm/filechooserdialog.h>
+#include <gtkmm/stock.h>
+#include <glibmm/miscutils.h>
 
 #include "genericFeatures.hpp"
 #include "genericAlertWindow.hpp"
+
+/*! \class filechooserDialog
+ * \brief This class is used to launch a generic filechooser
+ *
+ * This class implements all generic functions which can be usefull for a generic filechooser. It allows us to define the title of the filechooser, the kind of action (open or save), the behavior of the filechooser and even the mime type which will constrain the filechooser itself.
+ */
 
 class filechooserDialog : public Gtk::FileChooserDialog
 {
@@ -50,6 +52,12 @@ public:
 		unsigned int mimeType = 0
 	);
 	
+	/*!*
+	* @fn ~filechooserDialog(void)
+	* @brief Class destructor
+	* @brief The filechooserDialog class will destroy this widget at the end of its life-cycle.
+	* @param[in] void : none
+	*/
 	virtual ~filechooserDialog
 	(
 		void
@@ -69,45 +77,6 @@ public:
 	);
 
 	/**
-	* @fn Glib::ustring getURIToFile(void)
-	* @brief This function will return the URI to the selected file
-	* @brief
-	* @note needs more documentation
-	* @param[in] void : no params
-	* @return Glib::ustring if all is right or an error at compilation time.
-	*/
-	Glib::ustring getURIToFile
-	(
-		void
-	);
-	
-	/**
-	* @fn std::vector<Glib::ustring> getURIToFiles(void)
-	* @brief This function will return a vector with the URI to all selected files
-	* @brief
-	* @note needs more documentation
-	* @param[in] void : no params
-	* @return std::vector<Glib::ustring> if all is right or an error at compilation time.
-	*/
-	std::vector<Glib::ustring> getURIToFiles
-	(
-		void
-	);
-
-	/**
-	* @fn Glib::ustring getURIToFolder(void)
-	* @brief This function will return the URI to the selected folder
-	* @brief
-	* @note needs more documentation
-	* @param[in] void : no params
-	* @return Glib::ustring if all is right or an error at compilation time.
-	*/
-	Glib::ustring getURIToFolder
-	(
-		void
-	);
-	
-	/**
 	* @fn std::string getPathToFile(void)
 	* @brief This function will return the path to the selected file
 	* @brief
@@ -116,19 +85,6 @@ public:
 	* @return std::string if all is right or an error at compilation time.
 	*/
 	std::string getPathToFile
-	(
-		void
-	);
-	
-	/**
-	* @fn std::vector<std::string> getPathToFiles(void)
-	* @brief This function will return a vector with the path to all selected files
-	* @brief
-	* @note needs more documentation
-	* @param[in] void : no params
-	* @return std::vector<std::string> if all is right or an error at compilation time.
-	*/
-	std::vector<std::string> getPathToFiles
 	(
 		void
 	);
@@ -149,7 +105,6 @@ public:
 protected:
 
 	int response; /*!< response the Gtk::ResponType selected by the user into the filechooser */
-	std::string output_filename; /*!< response the Gtk::ResponType selected by the user into the filechooser */
 	
 	/**
 	* @fn void setXMLFilter(void)

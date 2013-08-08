@@ -2,55 +2,29 @@
 #define CPP_GENERICFEATURES_CLASS_H
 
 /*!
- * \project_name EBU Player
+ * \project_name BiM Encoder/Decoder
  * \file genericFeatures.hpp
  * \brief the generic features specifications
- * \details This class is used to define several generic functions useful to the media player or any of projet classes without instantiate the class. Basically, all public functions are declared as static to avoid the class instanciation
+ * \details This class is used to define several generic functions useful to the application or any of projet classes without instantiate this class. Basically, all public functions are declared as static to avoid the class instanciation
  * \authors Marco Dos Santos Oliveira
- * \version 0.1
- * \date 20 august 2012
- * \copyright GNU GPLv3
+ * \version 1.0.0
+ * \date 2 August 2013
+ * \copyright This software is published in MPLv2.0
  *
  */
 
-#include <string>
-#include <vector>
-#include <iostream>
-#include <string.h>
-#include <iterator>
 #include <sstream>
-#include <fstream>
-#include <iomanip>
-#include <ctime>
-#include <cmath>
-#include <chrono>
-#include <dirent.h>
- 
-#ifndef WIN32
-    #include <sys/types.h>
-#endif
+
+
 
 /*! \class genericFeatures
  * \brief this class is used to define generic functions
  *
- * This class implements all generic functions which can be usefull to the media player or any component of the media player
+ * This class implements all generic functions which can be usefull to the application
  */
 
 class genericFeatures {
 public:
-
-/////////////////////////////////
-//////                     ////// 
-//////  public variables   //////
-//////                     //////
-/////////////////////////////////
-
-
-/////////////////////////////////
-//////                     ////// 
-//////  public functions   //////
-//////                     //////
-/////////////////////////////////
 
 	/**
 	 * @fn static std::string removePrefix(std::string str, std::string prefix)
@@ -96,19 +70,6 @@ public:
 	);
 	
 	/**
-	 * @fn static std::size_t getTime(void)
-	 * @brief Return the current timestamp with milliseconds and microseconds
-	 * @brief Can be used like a unique id.
-	 * @note needs more documentation
-	 * @param[in] void : no arg
-	 * @return std::size_t if all is right or an error at compilation time.
-	 */
-	static std::size_t getTime
-	(
-		void
-	);
-	
-	/**
 	 * @fn static bool hasExtension(std::string filename)
 	 * @brief This function will test if the input file has an extension.
 	 * @brief
@@ -150,94 +111,32 @@ public:
 	);
 
 	/**
-	 * @fn static unsigned long int getFileSize(std::string filename)
-	 * @brief This function will compute the file size in bytes.
+	 * @fn static bool isHexadecimal(std::string data)
+	 * @brief This function will test if the string - data - is an hexadecimal string or not
 	 * @brief
 	 * @note needs more documentation
-	 * @param[in] std::string filename : Path to the file to test
-	 * @return unsigned long int if all is right or an error at compilation time.
-	 */
-	static unsigned long int getFileSize
-	(
-		std::string filename
-	);
-
-	/**
-	 * @fn static std::string getSizeUnit(unsigned long int bytes)
-	 * @brief This function will identify the most appropriate unit prefix to filesize
-	 * @brief
-	 * @note needs more documentation
-	 * @param[in] unsigned long int bytes : Filesize in bytes
+	 * @param[in] std::string data : String to check
 	 * @return std::string if all is right or an error at compilation time.
 	 */
-	static std::string getSizeUnit
+	static bool isHexadecimal
 	(
-		unsigned long int bytes
+		std::string data
 	);
 
 	/**
-	 * @fn static std::vector<std::string> listFiles(std::string path)
-	 * @brief This function will generate a vector with the path to each files into the folder as a standard string.
+	 * @fn static bool hasHexadecimalPrefix(std::string data)
+	 * @brief This function will test if the string - data - has the hexadecimal prefix (0x or 0X) or not
 	 * @brief
 	 * @note needs more documentation
-	 * @param[in] std::string path : Path to the folder
-	 * @return unsigned long int if all is right or an error at compilation time.
+	 * @param[in] std::string data : String to check
+	 * @return std::string if all is right or an error at compilation time.
 	 */
-	static std::vector<std::string> listFiles
+	static bool hasHexadecimalPrefix
 	(
-		std::string path
-	);
-
-	static std::string readFile
-	(
-		std::string file
-	);
-	
-	static std::string readBinaryFile 
-	(
-			std::string file
-	);
-	
-	static void writeBinaryFile 
-	(
-			std::string file,
-			std::vector<char *> data
-	);
-	
-	static char convertToBinary
-	(
-		unsigned char HalfMSB,
-		unsigned char HalfLSB
-	);
-	
-	static std::string hexToStr
-	(
-		unsigned short hex
-	);
-	
-	static void writeFirstBinaryFile 
-	(
-			void
-	);
-	
-	static void readFirstBinaryFile 
-	(
-			void
+		std::string data
 	);
 	
 protected:
-
-/////////////////////////////////
-//////                     ////// 
-////// protected variables //////
-//////                     //////
-/////////////////////////////////
-
-/////////////////////////////////
-//////                     ////// 
-////// protected functions //////
-//////                     //////
-/////////////////////////////////
 	
 };
 #endif
