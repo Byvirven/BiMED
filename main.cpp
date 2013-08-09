@@ -17,7 +17,7 @@
 This is the documentation of the BiM Encoder/Decoder
  *
  */
-
+#include <unistd.h>
 #include "BiMEDWindow.hpp"
 /**
 * @fn int main (int argc, char *argv[])
@@ -29,9 +29,15 @@ This is the documentation of the BiM Encoder/Decoder
 * @note This function and his documentation must be completed
 */
 int main (int argc, char *argv[]) {
-	Gtk::Main app(argc, argv);
-	BiMEDWindow * BiMEncDec = new BiMEDWindow();
-	Gtk::Main::run( *BiMEncDec );
-	delete BiMEncDec;
+
+	if(isatty(STDIN_FILENO)) // interaction with user
+	{
+	  std::cout << "I have a terminal"<< std::endl;
+	} else {
+		Gtk::Main app(argc, argv);
+		BiMEDWindow * BiMEncDec = new BiMEDWindow();
+		Gtk::Main::run( *BiMEncDec );
+		delete BiMEncDec;
+	}
 	return 0;
 }
