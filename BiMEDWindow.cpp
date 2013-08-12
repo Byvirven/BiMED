@@ -10,6 +10,7 @@
  *
  */
 
+//#include <glibmm/miscutils.h>
 #include "BiMEDWindow.hpp"
 
 BiMEDWindow::BiMEDWindow
@@ -20,7 +21,12 @@ BiMEDWindow::BiMEDWindow
 
 	// configure the window
 	set_title("BiMED : The EBU BiM Encoder/Decoder");
-	set_icon_from_file("img/BiMLogo.png");
+	#ifdef __unix__
+		set_icon_from_file(Glib::get_current_dir()+"/img/BiMLogo.png");
+	#endif
+	#ifdef _WIN32
+		set_icon_from_file(Glib::get_current_dir()+"\\img\\BiMLogo.png");
+	#endif
 	
 	// instantiate the widgets
 	Gtk::Box * vbox = manage(new Gtk::Box(Gtk::ORIENTATION_VERTICAL,5));

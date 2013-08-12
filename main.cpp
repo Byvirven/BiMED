@@ -17,8 +17,27 @@
 This is the documentation of the BiM Encoder/Decoder
  *
  */
-#include <unistd.h>
-#include "BiMEDWindow.hpp"
+
+#ifdef __unix__
+	#include "BiMEDWindow.hpp"
+#endif
+
+#ifdef _WIN32
+	#include "stdafx.h"
+	#include <windows.h>
+	
+	int main (int argc, char **argv);
+	int WINAPI WinMain
+	(
+		HINSTANCE hInstance,
+		HINSTANCE hPrevInstance,
+		LPSTR lpCmdLine,
+		int nCmdShow
+	)
+	{
+		return main (__argc, __argv);
+	}
+#endif
 /**
 * @fn int main (int argc, char *argv[])
 * @brief This function loads the player design (all windows design).
@@ -29,15 +48,9 @@ This is the documentation of the BiM Encoder/Decoder
 * @note This function and his documentation must be completed
 */
 int main (int argc, char *argv[]) {
-
-	if(isatty(STDIN_FILENO)) // interaction with user
-	{
-	  std::cout << "I have a terminal"<< std::endl;
-	} else {
-		Gtk::Main app(argc, argv);
-		BiMEDWindow * BiMEncDec = new BiMEDWindow();
-		Gtk::Main::run( *BiMEncDec );
-		delete BiMEncDec;
-	}
+	Gtk::Main app(argc, argv);
+	BiMEDWindow * BiMEncDec = new BiMEDWindow();
+	Gtk::Main::run( *BiMEncDec );
+	delete BiMEncDec;
 	return 0;
 }
